@@ -3,9 +3,27 @@ class Api::V1::FeaturesController < ApplicationController
 
   # GET /features
   def index
-    @features = Feature.all
+    filters = params[:filters] || {}
+    page = params[:page].to_i
+    per_page = params[:per_page].to_i
 
-    render json: @features
+    per_page = 1000 if per_page > 1000 || per_page <= 0
+
+    features = Feature.all
+    if filters[:mag_type].present?
+      mag_types = filters[:mag_type].split(",")
+      features = features.where(mag_type: mag_types)
+    end
+
+    @features = features.page(page).per(per_page)
+    
+    render json: @features, meta: {
+      pagination: {
+        current_page: @features.current_page,
+        total: @features.total_count,
+        per_page: @features.limit_value
+      }
+    }, adapter: :json
   end
 
   # GET /features/1
