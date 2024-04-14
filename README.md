@@ -18,13 +18,13 @@ Además, se ha implementado una tarea (Task) que se encarga de obtener periódic
 1. Clonar el repositorio:
 
 ```bash
-git clone <URL_DEL_REPOSITORIO>
+git clone [<URL_DEL_REPOSITORIO>](https://github.com/ElHurta/geo-api)
 ```
 
 2. Navegar al directorio del proyecto:
 
 ```bash
-cd proyecto-backend
+cd geo-api
 ```
 
 3. Instalar las dependencias:
