@@ -28,7 +28,13 @@ class Api::V1::FeaturesController < ApplicationController
 
   # GET /features/1
   def show
-    render json: @feature
+    @feature = Feature.find_by(id: params[:id])
+
+    if @feature
+      render json: @feature, serializer: FeatureSerializer, adapter: :json
+    else
+      render json: { error: 'Feature not found' }, status: :not_found
+    end
   end
 
   # POST /features
