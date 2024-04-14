@@ -10,8 +10,8 @@ Además, se ha implementado una tarea (Task) que se encarga de obtener periódic
 
 ### Requisitos previos
 
-- Ruby (versión X.X.X)
-- Ruby on Rails (versión X.X.X)
+- Ruby (versión 3.2.3)
+- Ruby on Rails (versión 7.1.3)
 
 ### Pasos para ejecutar el proyecto
 
